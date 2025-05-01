@@ -1,7 +1,7 @@
 """
 Google Search MCP Server
 
-This server allows Claude to perform Google searches and fetch webpage content.
+allows Claude to perform Google searches and fetch webpage content.
 """
 
 from mcp.server.fastmcp import FastMCP
@@ -35,7 +35,7 @@ def google_search(query: str, num_results: int = 1) -> str:
         soup = BeautifulSoup(response.text, "html.parser")
 
         text = soup.get_text(separator="\n", strip=True)
-        return f"Top URL: {url}\n\nPage Content:\n{text[:1000]}..."  # Limit to 1000 chars
+        return f"Top URL: {url}\n\nPage Content:\n{text[:1000]}..."  
 
     except Exception as e:
         return f"Error during Google search: {str(e)}"
